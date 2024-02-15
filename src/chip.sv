@@ -13,7 +13,22 @@ module Register
     end
 endmodule: Register
 
-module my_chip
+module my_chip (
+    input logic [11:0] io_in, // Inputs to your chip
+    output logic [11:0] io_out, // Outputs from your chip
+    input logic clock,
+    input logic reset // Important: Reset is ACTIVE-HIGH
+);
+    
+    // Basic counter design as an example
+
+
+    RangeFinder #(10) rf( .clock, .reset, .data_in(io_in[0:9]), .go(io_in[10]), .finish(io_in[11]), .range(io_out[0:9]), .debug_error(io_out[10]));
+             
+
+endmodule
+
+module RangeFinder
     #(parameter WIDTH=16)
     (input logic [WIDTH-1:0] data_in,
      input logic clock, reset,
