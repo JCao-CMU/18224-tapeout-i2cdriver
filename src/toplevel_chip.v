@@ -6,13 +6,16 @@ module toplevel_chip (
     output [13:0] io_out
 );
 
-    my_chip mchip (
-        .io_in(io_in[11:0]),
-        .io_out(io_out[11:0]),
+    my_chip #(10) mchip (
+        .data_in[9:0]
+        .go(data_in[10]), 
+        .finish(data_in[11]), 
+        .range(io_out[9:0]),
+        .debug_error(io_out[13]), 
         .clock(io_in[12]),
         .reset(io_in[13])
     );
 
-    assign io_out[13:12] = 2'b00;
+    assign io_out[12:10] = 2'b00;
 
 endmodule
