@@ -23,7 +23,11 @@ module my_chip (
     // Basic counter design as an example
 
 
-    RangeFinder #(10) rf( .clock, .reset, .data_in(io_in[9:0]), .go(io_in[10]), .finish(io_in[11]), .range(io_out[9:0]), .debug_error(io_out[10]));
+    RangeFinder #(10) rf( .clock, .reset, .data_in(io_in[9:0]), 
+    .go(io_in[10]), .finish(io_in[11]), .range(io_out[9:0]), 
+    .debug_error(io_out[10]));
+
+    assign io_out[11] = 1'b0;
              
 
 endmodule
