@@ -13,6 +13,6 @@ module toplevel_chip (
         .reset(io_in[13])
     );
 
-    assign io_out[12:10] = 2'b00;
+    assign io_out[13:12] = 2'b00;
 
 endmodule
