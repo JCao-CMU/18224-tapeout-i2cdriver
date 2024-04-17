@@ -8,7 +8,8 @@ module my_chip (
 );
     
     // Basic counter design as an example
-
+    // TODO: remove the counter design and use this module to insert your own design
+    // DO NOT change the I/O header of this design
 
     I2C_slave slv( .clock(clock), .reset(reset), .SDA_in(io_in[0]), 
     .SDA_out(io_out[0]), .SCL(io_in[1]), .wr_up(io_out[1]), 

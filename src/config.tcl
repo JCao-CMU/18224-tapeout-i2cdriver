@@ -30,7 +30,7 @@ set ::env(BOTTOM_MARGIN_MULT) 2
 
 # absolute die size
 set ::env(FP_SIZING) absolute
-set ::env(DIE_AREA) "0 0 280 280"
+set ::env(DIE_AREA) "0 0 320 320"
 
 ## THIS IS THE ONLY LINE YOU CAN EDIT
 set ::env(FP_CORE_UTIL) 45
@@ -51,8 +51,8 @@ set ::env(DECAP_CELL) "\
 # clock
 set ::env(CLOCK_TREE_SYNTH) 1
 
-# period is in ns, so 500ns == 2 MHz
-set ::env(CLOCK_PERIOD) "500"
+# period is in ns, so 30ns = 33MHz
+set ::env(CLOCK_PERIOD) "30"
 set ::env(CLOCK_PORT) {io_in[12]}
 
 # hold/slack margin
