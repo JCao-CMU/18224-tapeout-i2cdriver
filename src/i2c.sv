@@ -1,41 +1,5 @@
 `default_nettype none
 
-module my_chip (
-    input logic [11:0] io_in, // Inputs to your chip
-    output logic [11:0] io_out, // Outputs from your chip
-    input logic clock,
-    input logic reset // Important: Reset is ACTIVE-HIGH
-);
-    
-    // Basic counter design as an example
-
-
-    I2C_slave slv( .clock(clock), .reset(reset), .SDA_in(io_in[0]), 
-    .SDA_out(io_out[0]), .SCL(io_in[1]), .wr_up(io_out[1]), 
-    .data_in(io_in[9:2]), .data_out(io_out[9:2]), .writeOK(io_out[10]), 
-    .wr_down(io_out[11]), .data_incoming(io_in[10]));
-
-    // assign io_out[11] = 1'b0;
-             
-
-endmodule
-
-module ChipInterface (
-    input logic clk, rst_n, 
-    input logic gp14, gp15, gp16, gp17, gp18, gp19, gp20, gp21, gp22, gp23,
-    output logic gp24, gp25, gp26, gp27, 
-    output logic [7:0]led
-);
-    logic posreset;
-    // assign posreset = ~rst_n;
-    logic [7:0] lever_input;
-    assign lever_input = {gp21, gp20, gp19, gp18, gp17, gp16, gp15, gp14};
-    I2C_slave dut(.clock(clk), .reset(rst_n), .SDA_in(gp22), 
-    .SDA_out(gp27), .SCL(gp26), .wr_up(gp24), .data_in(lever_input), 
-    .data_out(led), .writeOK(), .wr_down(), .data_incoming(gp23));
-
-endmodule
-
 module I2C_slave (
     // in every circuit
     input logic clock, reset, 
