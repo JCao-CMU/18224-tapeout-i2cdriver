@@ -1,0 +1,680 @@
+rm -f results.xml
+"make" -f testbench.mk results.xml
+make[1]: Entering directory '/home/user/Desktop/18224-project-i2cdriver'
+mkdir -p sim_build
+verilator -cc --exe -Mdir sim_build -DCOCOTB_SIM=1 --top-module I2C_slave --vpi --public-flat-rw --prefix Vtop -o Vtop -LDFLAGS "-Wl,-rpath,/home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/libs -L/home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/libs -lcocotbvpi_verilator" --trace --trace-structs -Wno-fatal --timescale 1ns/1ps /home/user/Desktop/18224-project-i2cdriver/i2c.sv /home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/share/lib/verilator/verilator.cpp
+make -C sim_build  -f Vtop.mk
+make[2]: Entering directory '/home/user/Desktop/18224-project-i2cdriver/sim_build'
+g++  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -Os -c -o verilator.o /home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/share/lib/verilator/verilator.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated.o /home/user/oss-cad-suite/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated_dpi.o /home/user/oss-cad-suite/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated_vpi.o /home/user/oss-cad-suite/share/verilator/include/verilated_vpi.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated_vcd_c.o /home/user/oss-cad-suite/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated_threads.o /home/user/oss-cad-suite/share/verilator/include/verilated_threads.cpp
+python3 /home/user/oss-cad-suite/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtop.cpp Vtop___024root__DepSet_h84412442__0.cpp Vtop___024root__DepSet_heccd7ead__0.cpp Vtop__Dpi.cpp Vtop__Trace__0.cpp Vtop__ConstPool_0.cpp Vtop___024root__Slow.cpp Vtop___024root__DepSet_h84412442__0__Slow.cpp Vtop___024root__DepSet_heccd7ead__0__Slow.cpp Vtop__Syms.cpp Vtop__Trace__0__Slow.cpp > Vtop__ALL.cpp
+g++ -Os  -I.  -MMD -I/home/user/oss-cad-suite/share/verilator/include -I/home/user/oss-cad-suite/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o Vtop__ALL.o Vtop__ALL.cpp
+echo "" > Vtop__ALL.verilator_deplist.tmp
+Archive ar -rcs Vtop__ALL.a Vtop__ALL.o
+g++     verilator.o verilated.o verilated_dpi.o verilated_vpi.o verilated_vcd_c.o verilated_threads.o Vtop__ALL.a   -Wl,-rpath,/home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/libs -L/home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb/libs -lcocotbvpi_verilator  -pthread -lpthread -latomic   -o Vtop
+rm Vtop__ALL.verilator_deplist.tmp
+make[2]: Leaving directory '/home/user/Desktop/18224-project-i2cdriver/sim_build'
+rm -f results.xml
+MODULE=testbench TESTCASE= TOPLEVEL=I2C_slave TOPLEVEL_LANG=verilog \
+         sim_build/Vtop 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:105  in set_program_name_in_venv        Using Python virtual environment interpreter at OSS CAD Suite/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Verilator version 5.019 devel
+     0.00ns INFO     cocotb                             Running tests with cocotb v2.0.0.dev0 from /home/user/oss-cad-suite/lib/python3.8/site-packages/cocotb-2.0.0.dev0-py3.8-linux-x86_64.egg/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1714617961
+     0.00ns INFO     cocotb.regression                  Found test testbench.basic_test
+     0.00ns INFO     cocotb.regression                  running basic_test (1/1)
+============== STARTING TEST ==============
+Subarray to send:
+[0, 1, 0, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[1, 1, 1, 1, 0, 1, 0, 1]
+Subarray to send:
+[1, 0, 1, 1, 1, 1, 1, 1]
+Subarray to send:
+[1, 1, 0, 0, 0, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 0, 1, 1, 1, 1]
+Subarray to send:
+[0, 1, 1, 0, 1, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 1, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 1, 1, 1]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[1, 1, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 0, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 0, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 1, 1, 0, 1, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 1, 0]
+Subarray to send:
+[0, 1, 0, 1, 1, 1, 0, 0]
+Subarray to send:
+[1, 1, 0, 1, 1, 0, 1, 1]
+[0, 0, 0, 0, 1, 1, 0, 0]
+[1, 0, 0, 0, 1, 1, 0, 0]
+[0, 1, 1, 1, 1, 1, 0, 1]
+[0, 1, 1, 1, 0, 0, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 0, 0, 0, 1]
+Subarray to send:
+[1, 0, 0, 1, 0, 1, 0, 1]
+Subarray to send:
+[1, 1, 0, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 0, 0, 1, 0, 0, 1, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 0, 1]
+[0, 0, 1, 0, 1, 1, 0, 0]
+[1, 1, 0, 1, 1, 0, 0, 0]
+[0, 0, 0, 1, 0, 0, 0, 0]
+[0, 0, 0, 0, 1, 1, 1, 1]
+Subarray to send:
+[0, 0, 1, 0, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 1, 0, 1, 1, 1, 1]
+Subarray to send:
+[1, 0, 1, 1, 0, 1, 1, 0]
+[0, 1, 1, 1, 0, 1, 1, 1]
+[0, 0, 0, 0, 1, 1, 0, 1]
+[0, 1, 1, 0, 0, 1, 0, 1]
+[1, 1, 0, 1, 0, 1, 1, 0]
+[0, 1, 1, 1, 0, 0, 0, 0]
+[1, 1, 1, 0, 0, 1, 0, 1]
+[1, 0, 0, 0, 1, 1, 1, 0]
+Subarray to send:
+[1, 0, 1, 0, 1, 1, 0, 1]
+[1, 1, 0, 1, 1, 0, 0, 0]
+[1, 0, 1, 0, 1, 1, 1, 0]
+[1, 0, 0, 0, 1, 1, 1, 0]
+[0, 1, 0, 0, 1, 1, 1, 1]
+[0, 1, 1, 0, 1, 1, 1, 0]
+[1, 0, 1, 0, 1, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 0, 0, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 0, 0, 1]
+Subarray to send:
+[1, 0, 0, 1, 0, 1, 1, 0]
+[1, 1, 0, 0, 0, 0, 1, 0]
+[0, 0, 1, 1, 0, 0, 0, 1]
+[1, 0, 1, 1, 0, 1, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 1, 0, 1, 0]
+Subarray to send:
+[1, 0, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 1, 0, 1, 0]
+Subarray to send:
+[0, 0, 0, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 1, 1, 1, 1, 0, 1]
+Subarray to send:
+[1, 0, 0, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 1, 1, 1, 0, 0, 0, 1]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[1, 0, 1, 0, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 1, 0, 0, 1, 0, 1]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[0, 0, 0, 1, 0, 1, 1, 0]
+[1, 1, 1, 0, 1, 0, 1, 1]
+[0, 0, 1, 1, 1, 1, 1, 1]
+[1, 1, 0, 0, 0, 0, 0, 1]
+[0, 0, 1, 0, 1, 0, 0, 0]
+[1, 0, 0, 1, 0, 1, 1, 0]
+[1, 0, 1, 1, 1, 0, 0, 1]
+[0, 1, 1, 0, 0, 0, 1, 0]
+[0, 0, 1, 0, 0, 0, 1, 1]
+[0, 0, 0, 1, 0, 1, 1, 1]
+[0, 1, 1, 1, 0, 1, 0, 0]
+[1, 0, 0, 1, 0, 1, 0, 0]
+[0, 0, 1, 0, 1, 0, 0, 0]
+[0, 1, 1, 1, 0, 1, 1, 1]
+[0, 0, 1, 1, 0, 0, 1, 1]
+[1, 1, 0, 0, 0, 0, 1, 0]
+[1, 0, 0, 0, 1, 1, 1, 0]
+[1, 1, 1, 0, 1, 0, 0, 0]
+[1, 0, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[0, 1, 1, 1, 0, 0, 0, 1]
+Subarray to send:
+[1, 1, 1, 0, 1, 1, 1, 1]
+Subarray to send:
+[1, 1, 1, 1, 0, 1, 1, 1]
+Subarray to send:
+[0, 0, 1, 0, 0, 0, 0, 1]
+Subarray to send:
+[0, 0, 0, 1, 1, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 1]
+[1, 0, 1, 1, 0, 1, 0, 1]
+[0, 1, 1, 0, 1, 0, 1, 1]
+[1, 0, 0, 0, 1, 0, 0, 0]
+[0, 0, 1, 0, 0, 1, 0, 0]
+[0, 1, 0, 1, 0, 1, 1, 1]
+[0, 1, 1, 1, 1, 1, 0, 1]
+[0, 1, 0, 1, 0, 0, 1, 1]
+[1, 1, 1, 0, 1, 1, 0, 0]
+[1, 1, 0, 0, 0, 0, 1, 0]
+[1, 0, 0, 0, 1, 0, 1, 0]
+[0, 1, 1, 1, 0, 0, 0, 0]
+[1, 0, 1, 0, 0, 1, 1, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 1, 1, 1]
+[0, 0, 0, 1, 0, 0, 0, 0]
+[1, 0, 1, 0, 0, 0, 0, 1]
+[1, 1, 0, 0, 1, 1, 0, 1]
+[1, 0, 0, 0, 1, 0, 0, 1]
+[0, 0, 1, 0, 0, 0, 0, 1]
+[0, 1, 1, 0, 1, 1, 0, 0]
+[1, 0, 1, 0, 0, 0, 0, 1]
+[0, 1, 1, 0, 1, 1, 0, 0]
+Subarray to send:
+[1, 1, 0, 1, 0, 1, 0, 1]
+Subarray to send:
+[1, 0, 1, 0, 0, 0, 1, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 1, 1]
+Subarray to send:
+[0, 1, 0, 1, 0, 0, 1, 0]
+Subarray to send:
+[0, 1, 0, 1, 0, 0, 0, 1]
+Subarray to send:
+[1, 0, 1, 0, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 0, 1, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 1, 1, 1, 0, 0, 1, 1]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 1, 0, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 0, 0, 0, 1, 0, 0, 1]
+Subarray to send:
+[0, 1, 1, 0, 0, 1, 1, 1]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 1, 0, 1]
+Subarray to send:
+[1, 0, 1, 0, 0, 1, 0, 1]
+Subarray to send:
+[0, 0, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 1, 0, 0, 0]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 1]
+[1, 1, 0, 0, 1, 0, 1, 0]
+[1, 1, 1, 0, 1, 0, 1, 0]
+[0, 1, 0, 0, 1, 0, 0, 1]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[0, 1, 0, 0, 0, 1, 1, 1]
+[0, 1, 1, 1, 1, 1, 1, 0]
+[1, 0, 0, 0, 0, 1, 1, 0]
+[1, 1, 0, 1, 1, 0, 1, 1]
+[1, 1, 0, 0, 1, 1, 0, 0]
+[1, 0, 1, 1, 1, 0, 0, 1]
+[0, 1, 1, 1, 0, 0, 0, 0]
+[0, 1, 0, 0, 0, 1, 1, 0]
+[1, 1, 1, 1, 1, 1, 0, 0]
+[0, 0, 1, 0, 1, 1, 1, 0]
+[0, 0, 0, 1, 1, 0, 0, 0]
+[0, 0, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 1, 1, 1, 1, 1, 1]
+Subarray to send:
+[0, 0, 1, 0, 1, 0, 1, 1]
+Subarray to send:
+[1, 0, 0, 1, 0, 1, 1, 1]
+Subarray to send:
+[0, 1, 1, 0, 1, 1, 1, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 0, 0]
+[0, 1, 0, 1, 0, 0, 0, 1]
+[1, 1, 0, 1, 1, 0, 0, 0]
+[0, 0, 1, 0, 0, 0, 0, 0]
+[1, 1, 0, 0, 0, 1, 0, 1]
+[1, 1, 0, 0, 0, 0, 1, 1]
+[1, 1, 1, 0, 1, 1, 1, 1]
+[1, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 1, 0, 1]
+[0, 0, 1, 1, 1, 0, 1, 0]
+[1, 0, 0, 0, 1, 0, 0, 0]
+[1, 0, 1, 0, 1, 1, 1, 0]
+[0, 0, 1, 1, 1, 0, 0, 1]
+[1, 0, 0, 1, 0, 1, 1, 0]
+[1, 1, 0, 1, 1, 1, 1, 0]
+[0, 1, 0, 1, 0, 0, 0, 0]
+[1, 1, 1, 0, 1, 0, 0, 0]
+[0, 0, 0, 0, 0, 0, 0, 1]
+[1, 0, 0, 0, 0, 1, 1, 0]
+[0, 1, 0, 1, 1, 0, 1, 1]
+[0, 0, 1, 1, 0, 1, 1, 0]
+[1, 0, 0, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 0, 1, 1, 1]
+Subarray to send:
+[1, 1, 0, 1, 0, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 0, 1, 1, 1, 1, 1, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[1, 0, 1, 0, 0, 1, 1, 1]
+Subarray to send:
+[0, 0, 1, 1, 0, 0, 1, 1]
+Subarray to send:
+[1, 1, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 1, 0, 1, 1, 0, 0, 1]
+Subarray to send:
+[0, 1, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 0, 1, 1]
+Subarray to send:
+[1, 0, 1, 1, 1, 1, 1, 1]
+Subarray to send:
+[1, 0, 0, 1, 0, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 1, 1]
+Subarray to send:
+[0, 0, 0, 1, 1, 0, 1, 0]
+Subarray to send:
+[1, 1, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 0, 0, 1]
+Subarray to send:
+[0, 1, 1, 1, 0, 0, 1, 0]
+Subarray to send:
+[1, 1, 0, 1, 1, 1, 1, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 1, 1, 0]
+[0, 1, 1, 0, 0, 1, 0, 1]
+[0, 1, 0, 0, 1, 1, 1, 0]
+[1, 0, 1, 1, 1, 1, 1, 1]
+[0, 1, 0, 1, 0, 0, 1, 0]
+[0, 0, 0, 0, 0, 0, 0, 0]
+[1, 0, 1, 0, 0, 1, 0, 1]
+[1, 1, 1, 1, 1, 0, 1, 0]
+[0, 0, 0, 0, 1, 0, 0, 1]
+[0, 0, 1, 1, 1, 0, 0, 1]
+[1, 0, 1, 1, 1, 0, 0, 1]
+[1, 0, 0, 1, 1, 1, 0, 1]
+[0, 1, 1, 1, 1, 0, 1, 0]
+[0, 0, 0, 1, 1, 1, 0, 1]
+[0, 1, 1, 1, 1, 0, 1, 1]
+[0, 0, 1, 0, 1, 0, 0, 0]
+[0, 0, 1, 0, 1, 0, 1, 1]
+[1, 1, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 1, 1, 1, 1, 0, 0]
+[0, 1, 0, 0, 0, 0, 0, 0]
+[0, 1, 0, 0, 0, 0, 0, 1]
+[1, 1, 1, 1, 0, 0, 1, 1]
+[0, 1, 0, 1, 0, 1, 0, 0]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[1, 1, 0, 1, 1, 0, 0, 0]
+[0, 1, 1, 0, 1, 1, 0, 0]
+[0, 1, 1, 0, 0, 1, 1, 0]
+[1, 0, 0, 1, 1, 1, 1, 1]
+[1, 1, 0, 0, 1, 1, 0, 0]
+[1, 0, 1, 1, 1, 1, 1, 1]
+[1, 1, 1, 0, 0, 0, 0, 0]
+[1, 1, 1, 0, 0, 1, 1, 1]
+[0, 0, 1, 1, 1, 1, 0, 1]
+[0, 1, 1, 1, 1, 1, 1, 0]
+[0, 1, 1, 1, 0, 0, 1, 1]
+[0, 0, 1, 0, 0, 0, 0, 0]
+[1, 0, 1, 0, 1, 1, 0, 1]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 0]
+[0, 1, 1, 1, 0, 1, 0, 1]
+[0, 1, 1, 1, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 0, 1, 1]
+[0, 0, 1, 0, 0, 1, 0, 0]
+[0, 0, 0, 1, 1, 1, 1, 0]
+[0, 1, 1, 1, 0, 1, 0, 1]
+[0, 0, 1, 0, 0, 0, 1, 0]
+[0, 0, 0, 1, 0, 0, 0, 0]
+[1, 0, 1, 0, 1, 0, 0, 1]
+[0, 0, 1, 0, 0, 1, 0, 0]
+[0, 1, 1, 1, 1, 0, 0, 1]
+[1, 0, 0, 0, 1, 1, 1, 0]
+[1, 1, 1, 1, 1, 0, 0, 0]
+[0, 1, 1, 0, 1, 1, 0, 1]
+[0, 1, 0, 0, 0, 0, 1, 1]
+[1, 1, 1, 1, 0, 0, 1, 0]
+[0, 1, 1, 1, 1, 1, 0, 0]
+[1, 1, 1, 1, 0, 0, 1, 0]
+[1, 1, 0, 1, 0, 0, 0, 0]
+Subarray to send:
+[1, 1, 0, 1, 0, 0, 0, 1]
+Subarray to send:
+[1, 1, 0, 1, 1, 0, 1, 0]
+Subarray to send:
+[1, 1, 0, 0, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 0, 1, 1, 1]
+Subarray to send:
+[1, 0, 1, 0, 1, 0, 1, 0]
+Subarray to send:
+[0, 1, 1, 0, 1, 1, 1, 1]
+Subarray to send:
+[1, 0, 1, 0, 0, 1, 1, 1]
+[0, 0, 1, 1, 0, 0, 0, 1]
+[1, 1, 0, 1, 1, 1, 0, 0]
+[1, 0, 1, 1, 0, 1, 0, 1]
+[1, 1, 0, 1, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 1, 0, 0, 0, 0, 0]
+Subarray to send:
+[1, 1, 0, 1, 1, 0, 1, 1]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[1, 1, 0, 1, 0, 0, 1, 0]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 1, 1]
+Subarray to send:
+[0, 0, 0, 1, 1, 1, 0, 0]
+Subarray to send:
+[1, 1, 0, 0, 1, 1, 1, 0]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 1, 1, 0, 1, 0, 0, 0]
+[0, 0, 0, 1, 1, 0, 1, 1]
+[0, 0, 1, 1, 0, 0, 1, 0]
+[0, 0, 0, 1, 1, 1, 1, 1]
+[1, 1, 0, 0, 1, 1, 1, 0]
+[1, 0, 1, 0, 1, 1, 0, 1]
+[0, 0, 1, 1, 0, 1, 1, 1]
+[0, 1, 1, 1, 1, 1, 1, 1]
+[0, 1, 1, 0, 0, 0, 1, 0]
+[0, 1, 1, 0, 0, 0, 0, 1]
+[1, 1, 1, 0, 0, 1, 0, 1]
+[0, 1, 0, 0, 0, 1, 1, 1]
+[1, 1, 0, 1, 1, 0, 0, 0]
+[0, 1, 0, 1, 1, 1, 0, 1]
+[1, 0, 0, 0, 1, 1, 1, 0]
+[1, 1, 1, 0, 1, 1, 0, 0]
+Subarray to send:
+[1, 1, 1, 1, 0, 1, 1, 1]
+Subarray to send:
+[1, 0, 0, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 0, 1, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 0, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 0, 1, 0, 0, 0, 1, 1]
+Subarray to send:
+[1, 1, 0, 1, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 0, 0]
+[1, 1, 1, 0, 0, 0, 1, 0]
+[0, 0, 1, 1, 0, 0, 1, 0]
+[0, 0, 0, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 0, 0, 0, 0, 1, 1, 1]
+Subarray to send:
+[0, 1, 1, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 0]
+Subarray to send:
+[1, 0, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 1, 0, 1]
+Subarray to send:
+[0, 0, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 0, 1, 1, 1, 0, 0]
+Subarray to send:
+[1, 0, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[1, 0, 0, 1, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 1, 0, 1, 0, 0, 0, 0]
+Subarray to send:
+[1, 0, 1, 1, 0, 1, 1, 1]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 0, 1, 0, 1, 0, 0]
+Subarray to send:
+[0, 1, 1, 1, 0, 0, 1, 1]
+Subarray to send:
+[1, 1, 0, 0, 0, 0, 1, 0]
+Subarray to send:
+[0, 1, 1, 0, 0, 1, 1, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 1, 1]
+[0, 0, 0, 0, 0, 1, 1, 1]
+[0, 0, 1, 0, 1, 1, 1, 1]
+[0, 1, 1, 1, 1, 0, 0, 1]
+[0, 1, 0, 1, 0, 1, 0, 1]
+[1, 1, 0, 1, 0, 0, 0, 0]
+[1, 1, 1, 1, 1, 0, 0, 0]
+[1, 1, 1, 1, 0, 1, 1, 0]
+[0, 1, 1, 0, 1, 1, 0, 1]
+[1, 1, 0, 0, 1, 1, 0, 1]
+[0, 0, 0, 1, 1, 1, 1, 0]
+[0, 1, 0, 1, 0, 1, 0, 0]
+[1, 1, 0, 0, 0, 0, 1, 0]
+[0, 0, 0, 0, 0, 0, 0, 1]
+[1, 1, 0, 0, 0, 1, 1, 1]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[1, 1, 1, 0, 1, 0, 0, 0]
+[1, 0, 0, 1, 0, 0, 1, 0]
+[1, 1, 0, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 0, 1, 0, 0, 0, 1]
+Subarray to send:
+[1, 0, 1, 1, 0, 1, 0, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 0, 0, 1]
+Subarray to send:
+[0, 1, 1, 0, 1, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 0, 0, 0, 1, 0, 1]
+Subarray to send:
+[1, 0, 0, 1, 1, 0, 0, 1]
+Subarray to send:
+[0, 0, 0, 0, 0, 1, 0, 1]
+Subarray to send:
+[0, 1, 1, 0, 1, 0, 1, 0]
+Subarray to send:
+[1, 1, 0, 0, 0, 1, 0, 1]
+Subarray to send:
+[1, 0, 0, 0, 0, 1, 1, 1]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 1, 1]
+Subarray to send:
+[1, 1, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 0, 0, 0, 1, 0, 0, 0]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 1, 0, 0, 0, 0]
+Subarray to send:
+[1, 0, 1, 1, 0, 0, 1, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 1, 0, 0]
+[0, 1, 0, 0, 1, 1, 1, 1]
+[0, 1, 1, 0, 0, 0, 0, 1]
+[1, 0, 0, 1, 0, 1, 1, 1]
+[0, 1, 1, 0, 1, 1, 1, 1]
+[0, 0, 0, 1, 1, 1, 0, 1]
+[0, 0, 0, 1, 1, 1, 1, 1]
+[1, 0, 1, 0, 0, 0, 0, 0]
+[0, 0, 0, 1, 1, 1, 0, 1]
+[0, 0, 0, 1, 1, 0, 0, 1]
+[1, 1, 1, 1, 0, 1, 0, 0]
+[0, 1, 0, 1, 0, 0, 0, 0]
+[0, 0, 0, 1, 1, 1, 0, 1]
+[0, 0, 1, 0, 1, 0, 0, 1]
+[0, 1, 0, 1, 1, 1, 1, 1]
+[0, 0, 1, 0, 0, 0, 1, 1]
+[0, 0, 1, 0, 0, 0, 1, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 0, 1]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[0, 0, 0, 0, 1, 1, 0, 0]
+Subarray to send:
+[1, 1, 0, 0, 1, 0, 1, 1]
+Subarray to send:
+[0, 0, 1, 1, 1, 1, 0, 1]
+Subarray to send:
+[0, 0, 0, 1, 1, 1, 0, 1]
+Subarray to send:
+[1, 1, 0, 0, 1, 1, 1, 1]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 0, 1]
+[0, 0, 1, 1, 1, 1, 0, 1]
+[0, 1, 1, 1, 1, 1, 1, 0]
+[0, 0, 0, 1, 0, 1, 0, 0]
+[0, 0, 1, 0, 1, 0, 0, 1]
+[1, 1, 0, 1, 0, 1, 1, 0]
+[1, 0, 1, 0, 0, 0, 0, 1]
+[1, 0, 0, 0, 0, 1, 0, 1]
+[0, 1, 1, 0, 1, 0, 0, 0]
+[1, 0, 1, 0, 0, 0, 0, 0]
+[0, 1, 1, 1, 1, 0, 1, 0]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[1, 1, 0, 0, 1, 0, 1, 0]
+[0, 1, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[1, 0, 1, 0, 1, 0, 1, 0]
+Subarray to send:
+[1, 1, 0, 1, 1, 1, 0, 1]
+Subarray to send:
+[0, 1, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 0, 0, 0, 0, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 1, 1]
+Subarray to send:
+[0, 1, 1, 0, 0, 0, 0, 1]
+Subarray to send:
+[1, 1, 0, 1, 1, 1, 1, 0]
+Subarray to send:
+[0, 0, 1, 1, 0, 0, 0, 0]
+Subarray to send:
+[1, 0, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 1, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 1, 0, 1, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 0, 1]
+Subarray to send:
+[1, 0, 0, 1, 1, 1, 0, 1]
+Subarray to send:
+[0, 1, 0, 0, 0, 0, 1, 1]
+Subarray to send:
+[0, 1, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 1, 1, 1, 1, 0, 0, 0]
+Subarray to send:
+[0, 1, 1, 0, 0, 1, 0, 0]
+Subarray to send:
+[0, 1, 0, 0, 1, 1, 0, 0]
+Subarray to send:
+[0, 0, 1, 1, 0, 1, 1, 0]
+Subarray to send:
+[1, 0, 1, 0, 0, 1, 1, 1]
+[1, 1, 1, 0, 1, 0, 1, 0]
+[1, 0, 1, 0, 0, 0, 0, 1]
+[0, 0, 1, 0, 0, 1, 0, 1]
+[0, 0, 0, 0, 0, 1, 0, 0]
+[1, 1, 1, 0, 1, 0, 1, 0]
+[0, 0, 1, 1, 0, 0, 1, 1]
+[0, 0, 1, 0, 0, 1, 0, 1]
+[0, 1, 1, 0, 1, 1, 0, 1]
+[1, 0, 0, 0, 0, 1, 1, 1]
+[0, 1, 0, 0, 0, 0, 1, 1]
+470505.00ns INFO     cocotb.regression                  basic_test passed
+470505.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** testbench.basic_test           PASS      470505.00           8.28      56843.56  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0             470505.00           8.81      53400.15  **
+                                                        **************************************************************************************
+                                                        
+- :0: Verilog $finish
+make[1]: Leaving directory '/home/user/Desktop/18224-project-i2cdriver'

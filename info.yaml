@@ -17,28 +17,21 @@ documentation:
   discord: "" # Your discord handle
   title: "I2C Decipher" # Project title
   description: "I2C to Byte translator" # Short description of what your project does
-  how_it_works: "..." # Longer description of how the project works
+  how_it_works: "This is a I2C to byte converter which converts I2C message to a parallel 8-pin output and vice versa. Good for using with LCD display or other device that requires parallel data in." # Longer description of how the project works
   how_to_test: "Run make -Bf testbench.mk" # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   external_hw: "Need a I2C master" # Describe any external hardware needed
   language: "verilog" # other examples include Verilog, Amaranth, VHDL, etc
-  doc_link: "" # URL to longer form documentation, eg the README.md in your repository
-  clock_hz: 1000 # Clock frequency in Hz (if required)
-  picture: "" # relative path to a picture in your repository
+  doc_link: "README.md" # URL to longer form documentation, eg the README.md in your repository
+  clock_hz: 25000000 # Clock frequency in Hz (if required)
+  picture: "img/I2C Design.jpg" # relative path to a picture in your repository
   inputs: # a description of what the inputs do
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - SCL
+    - data_incoming
+    - data_in[7:0]
+    - SDA_in
   outputs:
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - writeOK
+    - data_out[7:0]
+    - SDA_out
+    - wr_up
+    - wr_down

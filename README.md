@@ -9,6 +9,8 @@ Jeffery Cao
 ## Overview
 
 This is a I2C to byte converter which converts I2C message to a parallel 8-pin output and vice versa. Good for using with LCD display or other device that requires parallel data in. 
+
+The Address of this device is `0x49`, fixed.
 <!-- (high-level overview of what your project does, in a few lines) -->
 
 ## How it Works
@@ -59,6 +61,17 @@ This is not a standalone device. To be fully functional, use tri-state driver or
 
 In terms of the testbench, it will be a COCOTB testbench for the logic checking inside the chip. run `make -Bf testbench.mk` to start run the cocotb testbench. A `PASS` should be outputted.
 
+![](./img/SharedScreenshot.jpg)
+
+The GTKwave waforform looked roughly like this:
+
+![](./img/屏幕截图%202024-05-01%20224814.jpg)
+
+Both log and VCD file is in the `etc` folder. 
+
+After the chip is manufactured, please test the chip based on the hardware schematic. A multiplexer or tri-state buffer will be needed to togger between SCL line to be either SCL_in or SCL_out. On the lower stream, either populate the input to master be either hand controlled or controller-controlled. Nontheless, the master need to be capable of sending I2C signals and receiving I2C signals. Note that this system does not support clock stretching, so the I2C clock should be uniform. 
+
+On the master microcontroller, use `I2C.write` (if you are using micropython) or `Wire.write()` (if you are a Arduino lover) to test the input. The Address of this device is `0x49`, fixed. Hook up the `data_out` to LED, you should be able to see the LED change in respective of the data sent (The chip uses 3.3V logic). Similarily, test the upstream datapath using `I2C.read` or `Wire.read`.
 <!-- (explain how to test your design; if relevant, give examples of inputs and expected outputs)
 
 (if you would like your design to be tested after integration but before tapeout, provide a Python script that uses the Debug Interface posted on canvas and explain here how to run the testing script) -->
